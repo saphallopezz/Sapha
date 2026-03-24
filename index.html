@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Saphal Lamsal — Developer & Cybersecurity Enthusiast</title>
+<meta name="description" content="Saphal Lamsal — Front-End Developer, Cybersecurity Enthusiast & Researcher from Nepal."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── HERO ── */
+.hero {
+  min-height:100vh; display:grid; grid-template-columns:1fr 1fr;
+  align-items:center; gap:4rem; padding:0 5vw;
+  padding-top:calc(var(--nav-h) + 2rem);
+  position:relative; z-index:2;
+}
+.hero-left { position:relative; }
+.hero-greeting {
+  font-family:'Space Mono',monospace; font-size:.78rem; color:var(--mint);
+  letter-spacing:.18em; text-transform:uppercase; margin-bottom:1rem;
+  opacity:0; animation:fadeUp .8s .2s ease forwards;
+}
+.hero-name {
+  opacity:0; animation:fadeUp .9s .35s ease forwards;
+  margin-bottom:1rem;
+}
+.hero-role {
+  font-family:'DM Sans',sans-serif; font-size:clamp(1.1rem,2.5vw,1.35rem);
+  font-weight:500; color:var(--fg2); margin-bottom:.4rem;
+  opacity:0; animation:fadeUp .9s .5s ease forwards;
+}
+.hero-typed {
+  font-size:clamp(1rem,2vw,1.2rem); color:var(--violet2);
+  font-weight:500; min-height:1.6em;
+  opacity:0; animation:fadeUp .9s .65s ease forwards;
+}
+.hero-typed-cursor { display:inline-block; width:2px; height:1.1em; background:var(--violet); margin-left:2px; animation:blink .8s infinite; vertical-align:middle; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.hero-desc {
+  font-size:.975rem; color:var(--fg2); line-height:1.8; max-width:480px;
+  margin-top:1.5rem; margin-bottom:2.5rem;
+  opacity:0; animation:fadeUp .9s .8s ease forwards;
+}
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp .9s .95s ease forwards; }
+.hero-stats {
+  display:flex; gap:2.5rem; margin-top:3rem; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s 1.1s ease forwards;
+}
+.hero-stat { }
+.hero-stat-num { font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; line-height:1;
+  background:linear-gradient(135deg,var(--violet),var(--mint)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-stat-lbl { font-size:.78rem; color:var(--fg3); margin-top:.2rem; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── HERO PHOTO ── */
+.hero-right {
+  position:relative; display:flex; align-items:center; justify-content:center;
+  opacity:0; animation:fadeUp .9s .4s ease forwards;
+}
+.hero-photo-wrap {
+  position:relative; width:100%; max-width:420px;
+}
+.hero-photo-frame {
+  position:relative; border-radius:24px; overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.6), 0 0 80px rgba(124,92,252,.2);
+  animation:heroPhotoFloat 6s ease-in-out infinite;
+}
+@keyframes heroPhotoFloat {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)}
+}
+.hero-photo-frame img { width:100%; display:block; object-fit:cover; height:520px; }
+/* gradient overlay on photo */
+.hero-photo-frame::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(160deg, rgba(124,92,252,.15) 0%, transparent 50%, rgba(0,229,180,.08) 100%);
+  pointer-events:none;
+}
+/* border glow */
+.hero-photo-ring {
+  position:absolute; inset:-4px; border-radius:28px;
+  background:linear-gradient(135deg, var(--violet), var(--mint));
+  z-index:-1; animation:ringGlow 4s ease-in-out infinite;
+}
+@keyframes ringGlow {
+  0%,100%{opacity:.5} 50%{opacity:1}
+}
+
+/* floating badges on hero */
+.fb1 { top:8%; right:-10%; animation-delay:0s; }
+.fb2 { bottom:20%; right:-8%; animation-delay:1.5s; }
+.fb3 { bottom:8%; left:0%; animation-delay:2.8s; }
+
+/* AREAS / SERVICES section */
+.areas-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:3rem; }
+.area-card {
+  padding:2rem; border-radius:var(--radius);
+  background:var(--bg2); border:1px solid var(--border2);
+  transition:border-color .35s, transform .35s, box-shadow .35s;
+  text-decoration:none; display:block;
+  position:relative; overflow:hidden;
+}
+.area-card .card-glow { position:absolute; width:180px; height:180px; }
+.area-card:hover { border-color:var(--border); transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,.4), 0 0 40px rgba(124,92,252,.1); }
+.area-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+.area-title { font-family:'Outfit',sans-serif; font-weight:700; font-size:1.15rem; color:var(--fg); margin-bottom:.5rem; }
+.area-desc { font-size:.875rem; color:var(--fg2); line-height:1.65; }
+.area-arrow { position:absolute; bottom:1.2rem; right:1.5rem; color:var(--violet); font-size:1.1rem;
+  transition:transform .3s; }
+.area-card:hover .area-arrow { transform:translate(4px,-4px); }
+
+/* scroll cue */
+.scroll-cue {
+  position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  font-family:'Space Mono',monospace; font-size:.65rem; color:var(--fg3);
+  letter-spacing:.15em; text-transform:uppercase; z-index:2;
+  animation:fadeUp .8s 1.5s ease forwards; opacity:0;
+}
+.scroll-cue-line { width:1px; height:50px; background:linear-gradient(to bottom, var(--violet), transparent);
+  animation:scrollLine 2s ease-in-out infinite; }
+@keyframes scrollLine { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(.5);opacity:.4} }
+
+@media (max-width:900px){
+  .hero { grid-template-columns:1fr; padding-top:calc(var(--nav-h)+4rem); min-height:auto; padding-bottom:4rem; }
+  .hero-right { order:-1; }
+  .hero-photo-frame img { height:360px; }
+  .areas-grid { grid-template-columns:1fr; }
+  .fb1,.fb2,.fb3 { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ORBs -->
+<div class="hero-bg-orb orb1"></div>
+<div class="hero-bg-orb orb2"></div>
+<div class="hero-bg-orb orb3"></div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">Saphal<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://drive.google.com/file/d/1iHBNV2UkH5LkhAP-1hYRZ2Ez_BQ6g4S7/view" target="_blank" class="nav-cv">Download CV</a>
+  <button class="hamburger" id="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="skills.html">Skills</a>
+  <a href="education.html">Education</a>
+  <a href="experience.html">Experience</a>
+  <a href="research.html">Research</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-greeting">&#128075; Hello, I am</p>
+    <div class="hero-name">
+      <h1 class="h-hero">Saphal <br><span class="grad">Lamsal</span></h1>
+    </div>
+    <p class="hero-role">Front-End Developer &amp; Cybersecurity Enthusiast</p>
+    <p class="hero-role hero-typed">
+      <span data-typed="Building secure web experiences.|Exploring ethical hacking.|Researching AI &amp; Blockchain.|Teaching CS in Nepal."></span><span class="hero-typed-cursor"></span>
+    </p>
+    <p class="hero-desc">A passionate technologist from Nepal — crafting elegant digital experiences and securing them from the ground up. Published researcher in Blockchain &amp; Healthcare Security.</p>
+    <div class="hero-btns">
+      <a href="about.html" class="btn btn-primary">&#128100; About Me</a>
+      <a href="contact.html" class="btn btn-outline">&#128140; Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="counter" data-target="3" data-suffix="+">0+</span></div>
+        <div class="hero-stat-lbl">Years Coding</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="counter" data-target="10" data-suffix="+">0+</span></div>
+        <div class="hero-stat-lbl">Technologies</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="counter" data-target="6" data-suffix="+">0+</span></div>
+        <div class="hero-stat-lbl">Certifications</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="counter" data-target="1" data-suffix="">0</span></div>
+        <div class="hero-stat-lbl">Publication</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring"></div>
+      <div class="hero-photo-frame tilt-card">
+        <div class="card-glow"></div>
+        <img src="assets/photo1.png" alt="Saphal Lamsal" loading="eager"/>
+      </div>
+    </div>
+    <!-- floating badges -->
+    <div class="float-badge fb1">
+      <span class="b-icon">🔐</span>
+      <div><div class="b-label">Cybersecurity</div><div class="b-sub">Enthusiast</div></div>
+    </div>
+    <div class="float-badge fb2">
+      <span class="b-icon">🎓</span>
+      <div><div class="b-label">BSc CSE</div><div class="b-sub">ISMT / Sunderland</div></div>
+    </div>
+    <div class="float-badge fb3">
+      <span class="b-icon">📍</span>
+      <div><div class="b-label">Nepal</div><div class="b-sub">Nawalpur</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="scroll-cue">
+  <span>Scroll</span>
+  <div class="scroll-cue-line"></div>
+</div>
+
+<!-- AREAS -->
+<section class="section" style="padding-top:2rem;">
+  <div class="chip reveal">What I Do</div>
+  <h2 class="h-section reveal">Areas of <span>Expertise</span></h2>
+  <p class="reveal" style="color:var(--fg2);max-width:520px;margin-bottom:0;">From building interfaces to securing systems — here's how I contribute.</p>
+
+  <div class="areas-grid">
+    <a href="skills.html" class="area-card tilt-card reveal" style="transition-delay:.05s">
+      <div class="card-glow"></div>
+      <span class="area-icon">🌐</span>
+      <div class="area-title">Web Development</div>
+      <div class="area-desc">Modern, responsive interfaces built with HTML, CSS, JavaScript &amp; React — focused on performance and user experience.</div>
+      <span class="area-arrow">↗</span>
+    </a>
+    <a href="certifications.html" class="area-card tilt-card reveal" style="transition-delay:.1s">
+      <div class="card-glow"></div>
+      <span class="area-icon">🔐</span>
+      <div class="area-title">Cybersecurity</div>
+      <div class="area-desc">Ethical hacking, VAPT, vulnerability analysis and network security — with verified industry certifications.</div>
+      <span class="area-arrow">↗</span>
+    </a>
+    <a href="research.html" class="area-card tilt-card reveal" style="transition-delay:.15s">
+      <div class="card-glow"></div>
+      <span class="area-icon">🧠</span>
+      <div class="area-title">Research &amp; AI</div>
+      <div class="area-desc">Published researcher on Blockchain &amp; Healthcare security. Exploring Machine Learning, AI, and data science applications.</div>
+      <span class="area-arrow">↗</span>
+    </a>
+    <a href="experience.html" class="area-card tilt-card reveal" style="transition-delay:.2s">
+      <div class="card-glow"></div>
+      <span class="area-icon">📡</span>
+      <div class="area-title">Networking &amp; ISP</div>
+      <div class="area-desc">Routing, switching, WLAN, fibre infrastructure and hands-on MikroTik &amp; Cisco configuration experience.</div>
+      <span class="area-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="index.html" class="footer-brand">Saphal<span>.</span></a>
+  <span class="footer-copy">&copy; 2026 Saphal Lamsal · Nepal</span>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://drive.google.com/file/d/1iHBNV2UkH5LkhAP-1hYRZ2Ez_BQ6g4S7/view" target="_blank">Resume</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — Saphal Lamsal</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.contact-layout { display:grid; grid-template-columns:1fr 1.5fr; gap:4rem; align-items:start; }
+.contact-info-card {
+  background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+}
+.cic-top {
+  background:linear-gradient(135deg, rgba(124,92,252,.15) 0%, rgba(0,229,180,.05) 100%);
+  padding:2.5rem; text-align:center; border-bottom:1px solid var(--border);
+}
+.cic-avatar {
+  width:96px; height:96px; border-radius:50%; object-fit:cover; object-position:top;
+  border:3px solid var(--violet); box-shadow:0 0 30px rgba(124,92,252,.4);
+  margin-bottom:1rem;
+}
+.cic-name { font-family:'Outfit',sans-serif; font-weight:800; font-size:1.3rem; color:var(--fg); }
+.cic-role { font-size:.875rem; color:var(--violet2); margin-top:.2rem; }
+.cic-body { padding:2rem; display:flex; flex-direction:column; gap:1.2rem; }
+.ci-row { display:flex; align-items:center; gap:1rem; }
+.ci-icon { width:38px; height:38px; border-radius:10px; background:rgba(124,92,252,.1); border:1px solid rgba(124,92,252,.2); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.ci-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--fg3); }
+.ci-val { font-size:.875rem; color:var(--fg2); }
+.ci-val a { color:var(--fg2); text-decoration:none; transition:color .25s; }
+.ci-val a:hover { color:var(--violet); }
+
+/* availability badge */
+.avail-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(0,229,180,.1); border:1px solid rgba(0,229,180,.25);
+  border-radius:100px; padding:.4rem 1rem; font-size:.78rem; color:var(--mint);
+  font-weight:600; margin-top:1.5rem;
+}
+.avail-dot { width:8px; height:8px; border-radius:50%; background:var(--mint); animation:dotPulse 1.5s ease-in-out infinite; }
+@keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+
+.social-row { display:flex; gap:.8rem; flex-wrap:wrap; }
+.social-btn {
+  width:42px; height:42px; border-radius:10px;
+  background:var(--bg3); border:1px solid var(--border2);
+  display:flex; align-items:center; justify-content:center; font-size:1rem;
+  text-decoration:none; transition:border-color .3s, transform .3s, background .3s;
+}
+.social-btn:hover { border-color:var(--violet); transform:translateY(-3px); background:rgba(124,92,252,.08); }
+
+/* location pulse */
+.location-card {
+  background:var(--bg3); border-radius:12px; padding:1.5rem; margin-top:1.2rem;
+  position:relative; overflow:hidden; text-align:center;
+}
+.location-card::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(rgba(124,92,252,.03) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(124,92,252,.03) 1px, transparent 1px);
+  background-size:24px 24px;
+}
+.loc-rings { display:flex; align-items:center; justify-content:center; position:relative; height:70px; z-index:1; }
+.loc-ring {
+  position:absolute; border-radius:50%;
+  border:1.5px solid rgba(124,92,252,.2);
+  animation:locRing 2.5s ease-out infinite;
+}
+.loc-ring:nth-child(1) { width:30px; height:30px; animation-delay:0s; }
+.loc-ring:nth-child(2) { width:55px; height:55px; animation-delay:.5s; }
+.loc-ring:nth-child(3) { width:80px; height:80px; animation-delay:1s; }
+.loc-dot { width:12px; height:12px; border-radius:50%; background:var(--violet); box-shadow:0 0 18px var(--violet); z-index:2; }
+@keyframes locRing { 0%{opacity:.8;transform:scale(.9)} 100%{opacity:0;transform:scale(1.3)} }
+.loc-city { font-family:'Outfit',sans-serif; font-weight:700; color:var(--fg); z-index:1; position:relative; }
+.loc-coords { font-family:'Space Mono',monospace; font-size:.65rem; color:var(--fg3); z-index:1; position:relative; }
+
+@media(max-width:900px){ .contact-layout{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="hero-bg-orb orb1"></div><div class="hero-bg-orb orb2"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">Saphal<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li><li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li><li><a href="research.html">Research</a></li>
+    <li><a href="certifications.html">Certifications</a></li><li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="https://drive.google.com/file/d/1iHBNV2UkH5LkhAP-1hYRZ2Ez_BQ6g4S7/view" target="_blank" class="nav-cv">Download CV</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="skills.html">Skills</a>
+  <a href="education.html">Education</a><a href="experience.html">Experience</a>
+  <a href="research.html">Research</a><a href="certifications.html">Certifications</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="pg-hero" data-bg="HELLO">
+  <div class="chip">07 — Contact</div>
+  <h1 class="h-section">Get In <span>Touch</span></h1>
+</div>
+
+<section class="section" style="padding-top:2rem;">
+  <div class="contact-layout">
+
+    <!-- LEFT: info card -->
+    <div class="reveal-left">
+      <div class="contact-info-card">
+        <div class="cic-top">
+          <img src="assets/photo1.png" alt="Saphal Lamsal" class="cic-avatar"/>
+          <div class="cic-name">Saphal Lamsal</div>
+          <div class="cic-role">Developer &amp; Cybersecurity Enthusiast</div>
+          <div class="avail-badge"><span class="avail-dot"></span>Available for Freelance</div>
+        </div>
+        <div class="cic-body">
+          <div class="ci-row">
+            <div class="ci-icon">📍</div>
+            <div><div class="ci-label">Location</div><div class="ci-val">Devchuli, Nawalpur, Nepal</div></div>
+          </div>
+          <div class="ci-row">
+            <div class="ci-icon">📱</div>
+            <div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+9779865506710">+977 9865506710</a></div></div>
+          </div>
+          <div class="ci-row">
+            <div class="ci-icon">✉️</div>
+            <div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:info@safallamsal.com.np">info@safallamsal.com.np</a></div></div>
+          </div>
+          <div class="ci-row">
+            <div class="ci-icon">🌐</div>
+            <div><div class="ci-label">Website</div><div class="ci-val"><a href="https://safallamsal.com.np" target="_blank">safallamsal.com.np</a></div></div>
+          </div>
+
+          <div class="social-row" style="margin-top:.5rem;">
+            <a href="https://linkedin.com/in/saphallamsal" target="_blank" class="social-btn" title="LinkedIn">💼</a>
+            <a href="https://github.com/safalamsall" target="_blank" class="social-btn" title="GitHub">🐙</a>
+            <a href="https://drive.google.com/file/d/1iHBNV2UkH5LkhAP-1hYRZ2Ez_BQ6g4S7/view" target="_blank" class="social-btn" title="Resume">📄</a>
+          </div>
+
+          <div class="location-card">
+            <div class="loc-rings">
+              <div class="loc-ring"></div>
+              <div class="loc-ring"></div>
+              <div class="loc-ring"></div>
+              <div class="loc-dot"></div>
+            </div>
+            <div class="loc-city">Nawalpur, Nepal</div>
+            <div class="loc-coords">27.7172° N · 84.4356° E</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: form -->
+    <div class="reveal-right">
+      <div class="glass-card" style="padding:2.5rem;">
+        <div class="card-glow"></div>
+        <p style="font-family:'Space Mono',monospace;font-size:.72rem;color:var(--violet2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem;">// Send me a message</p>
+
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+            <div class="form-field">
+              <label class="form-label" for="fname">First Name</label>
+              <input class="form-input" type="text" id="fname" placeholder="Your first name" required/>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="lname">Last Name</label>
+              <input class="form-input" type="text" id="lname" placeholder="Your last name"/>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" placeholder="your@email.com" required/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" placeholder="What's this about?"/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input" id="message" rows="6" placeholder="Tell me about your project, idea, or question..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">
+            <span id="btnText">✉️ Send Message</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THANK YOU MODAL -->
+<div id="thankModal">
+  <div class="thank-box">
+    <span class="heart-anim">❤️</span>
+    <div class="thank-title">Thank You!</div>
+    <div class="thank-sub">Your message has been sent successfully.<br/>I'll get back to you as soon as possible.<br/><br/>I truly appreciate you reaching out — it means a lot! 💜</div>
+    <button class="thank-close" onclick="closeThankYou()">Close ✓</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <a href="index.html" class="footer-brand">Saphal<span>.</span></a>
+  <span class="footer-copy">&copy; 2026 Saphal Lamsal · Nepal</span>
+  <div class="footer-links"><a href="about.html">About</a><a href="skills.html">Skills</a><a href="research.html">Research</a></div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function handleFormSubmit(e){
+  e.preventDefault();
+  const btn = document.getElementById('btnText');
+  btn.textContent = '⏳ Sending...';
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitBtn').style.opacity = '.7';
+  setTimeout(()=>{
+    document.getElementById('contactForm').reset();
+    document.getElementById('submitBtn').disabled = false;
+    document.getElementById('submitBtn').style.opacity = '1';
+    btn.textContent = '✉️ Send Message';
+    showThankYou();
+  }, 1500);
+}
+</script>
+</body>
+</html>

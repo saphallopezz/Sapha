@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About — Saphal Lamsal</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.about-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:4rem; align-items:start; }
+.photo-mosaic { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.pm-tall { grid-row:span 2; }
+.pm-tall img { height:100%; min-height:340px; object-fit:cover; border-radius:var(--radius); }
+.pm-sq img { height:180px; object-fit:cover; border-radius:var(--radius); }
+
+.about-contact-list { margin-top:2rem; display:flex; flex-direction:column; gap:.9rem; }
+.about-contact-item { display:flex; align-items:center; gap:.9rem; }
+.ac-icon { width:38px; height:38px; border-radius:10px; background:rgba(124,92,252,.12); border:1px solid rgba(124,92,252,.2); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.ac-label { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--fg3); }
+.ac-val { font-size:.9rem; color:var(--fg2); }
+.ac-val a { color:var(--violet2); text-decoration:none; transition:color .25s; }
+.ac-val a:hover { color:var(--mint); }
+
+.info-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem 2rem; margin-top:1.5rem; }
+.info-item dt { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--fg3); margin-bottom:.15rem; }
+.info-item dd { font-size:.9rem; color:var(--fg2); }
+
+.interests-wrap { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem; }
+
+@media(max-width:900px){ .about-grid{grid-template-columns:1fr;} .photo-mosaic{grid-template-columns:1fr 1fr;} .pm-tall{grid-row:auto;} }
+</style>
+</head>
+<body>
+<div class="hero-bg-orb orb1"></div><div class="hero-bg-orb orb2"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">Saphal<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li>
+    <li><a href="skills.html">Skills</a></li><li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li><li><a href="research.html">Research</a></li>
+    <li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://drive.google.com/file/d/1iHBNV2UkH5LkhAP-1hYRZ2Ez_BQ6g4S7/view" target="_blank" class="nav-cv">Download CV</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="skills.html">Skills</a>
+  <a href="education.html">Education</a><a href="experience.html">Experience</a>
+  <a href="research.html">Research</a><a href="certifications.html">Certifications</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="pg-hero" data-bg="ABOUT">
+  <div class="chip">01 — About Me</div>
+  <h1 class="h-section">Who I <span>Am</span></h1>
+</div>
+
+<section class="section" style="padding-top:2rem;">
+  <div class="about-grid">
+    <!-- LEFT: photos + contact -->
+    <div class="reveal-left">
+      <div class="photo-mosaic tilt-card">
+        <div class="card-glow"></div>
+        <div class="pm-tall">
+          <img src="assets/photo2.png" alt="Saphal Lamsal outdoor"/>
+        </div>
+        <div class="pm-sq">
+          <img src="assets/photo1.png" alt="Saphal Lamsal"/>
+        </div>
+        <div class="pm-sq">
+          <img src="assets/photo3.png" alt="Saphal Lamsal Graduation"/>
+        </div>
+      </div>
+
+      <div class="about-contact-list">
+        <div class="about-contact-item">
+          <div class="ac-icon">📍</div>
+          <div><div class="ac-label">Location</div><div class="ac-val">Devchuli, Nawalpur, Nepal</div></div>
+        </div>
+        <div class="about-contact-item">
+          <div class="ac-icon">📱</div>
+          <div><div class="ac-label">Phone</div><div class="ac-val"><a href="tel:+9779865506710">+977 9865506710</a></div></div>
+        </div>
+        <div class="about-contact-item">
+          <div class="ac-icon">✉️</div>
+          <div><div class="ac-label">Email</div><div class="ac-val"><a href="mailto:info@safallamsal.com.np">info@safallamsal.com.np</a></div></div>
+        </div>
+        <div class="about-contact-item">
+          <div class="ac-icon">💼</div>
+          <div><div class="ac-label">LinkedIn</div><div class="ac-val"><a href="https://linkedin.com/in/saphallamsal" target="_blank">linkedin.com/in/saphallamsal</a></div></div>
+        </div>
+        <div class="about-contact-item">
+          <div class="ac-icon">🐙</div>
+          <div><div class="ac-label">GitHub</div><div class="ac-val"><a href="https://github.com/safalamsall" target="_blank">github.com/safalamsall</a></div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.8rem;">
+        <a href="https://drive.google.com/file/d/1iHBNV2UkH5LkhAP-1hYRZ2Ez_BQ6g4S7/view" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">&#128196; Download CV</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: bio -->
+    <div class="reveal-right">
+      <div class="chip" style="margin-bottom:1rem;">Introduction</div>
+      <h2 style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--fg);margin-bottom:.5rem;">Saphal Lamsal</h2>
+      <p style="font-size:1rem;color:var(--violet2);margin-bottom:1.5rem;">Front-End Developer &amp; Cybersecurity Enthusiast based in Nepal</p>
+
+      <p style="color:var(--fg2);line-height:1.85;margin-bottom:1.2rem;">I am a focused and passionate technologist with a genuine curiosity for how things are built — and how they can be broken and secured. My work spans <strong style="color:var(--fg);">web development</strong>, <strong style="color:var(--fg);">cybersecurity</strong>, and <strong style="color:var(--fg);">machine learning</strong>, with published research in blockchain-based healthcare security.</p>
+
+      <p style="color:var(--fg2);line-height:1.85;margin-bottom:1.2rem;">I craft clean, responsive web interfaces that prioritise the user experience, while staying equally invested in understanding the security layers beneath. I am adept at vulnerability analysis, network security, and penetration testing — bridging the gap between developer and defender.</p>
+
+      <p style="color:var(--fg2);line-height:1.85;">Currently pursuing a BSc in Computer Systems Engineering and actively expanding my expertise through certifications, research, and hands-on teaching — driven by the belief that technology should be both <em style="color:var(--mint);">elegant and resilient</em>.</p>
+
+      <div class="info-grid" style="margin-top:2rem;">
+        <div class="info-item"><dt>Degree</dt><dd>BSc Computer Systems Engineering</dd></div>
+        <div class="info-item"><dt>Freelance</dt><dd style="color:var(--mint);">✓ Available</dd></div>
+        <div class="info-item"><dt>Languages</dt><dd>Nepali, English, Hindi</dd></div>
+        <div class="info-item"><dt>City</dt><dd>Nawalpur, Nepal</dd></div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="chip" style="margin-bottom:1rem;">Areas of Interest</div>
+      <div class="interests-wrap">
+        <span class="skill-pill">🌐 Networking</span>
+        <span class="skill-pill">🤖 Machine Learning</span>
+        <span class="skill-pill">💻 Web Development</span>
+        <span class="skill-pill">🔐 Cybersecurity</span>
+        <span class="skill-pill">📊 Data Analytics</span>
+        <span class="skill-pill">⛓️ Blockchain</span>
+        <span class="skill-pill">🧠 Artificial Intelligence</span>
+        <span class="skill-pill">📸 Photography</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="index.html" class="footer-brand">Saphal<span>.</span></a>
+  <span class="footer-copy">&copy; 2026 Saphal Lamsal · Nepal</span>
+  <div class="footer-links">
+    <a href="about.html">About</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
